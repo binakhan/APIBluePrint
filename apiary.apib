@@ -1,44 +1,54 @@
 FORMAT: 1A
 HOST: http://polls.apiblueprint.org/
 
-# Product
+# AnotherTestAPI
 
-Contains functionality of product
+Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Product Collection [/products]
+## Questions Collection [/questions]
 
-### Get All Products [GET]
+### List All Questions [GET]
 
 + Response 200 (application/json)
 
         [
             {
-                "id": "1",
-                "name": "Tomato Sauce",
-                "price": "Rs. 100"
-            },
-            {
-                "id": "2",
-                "name": "Nestle Apple Juice",
-                "price": "Rs. 30"
-            },
-            {
-                "id": "3",
-                "name": "Comic Book",
-                "price": "Rs. 100"  
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 256
+                    }
+                ]
             }
         ]
 
-### Create a New Product [POST]
+### Create a New Question [POST]
 
-You may create your own product using this action. It takes product details in JSON format.
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
 
 + Request (application/json)
 
         {
-           "id": "5",
-           "name": "Book Bag",
-           "price": "500"
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
         }
 
 + Response 201 (application/json)
