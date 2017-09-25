@@ -1,0 +1,70 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Product
+
+Contains functionality of product
+
+## Product Collection [/products]
+
+### Get All Products [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "1",
+                "name": "Tomato Sauce",
+                "price": "Rs. 100"
+            },
+            {
+                "id": "2",
+                "name": "Nestle Apple Juice",
+                "price": "Rs. 30"
+            },
+            {
+                "id": "3",
+                "name": "Comic Book",
+                "price": "Rs. 100"  
+            }
+        ]
+
+### Create a New Product [POST]
+
+You may create your own product using this action. It takes product details in JSON format.
+
++ Request (application/json)
+
+        {
+           "id": "5",
+           "name": "Book Bag",
+           "price": "500"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
